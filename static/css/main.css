@@ -1,0 +1,64 @@
+.navbar {
+  background: transparent;
+  -webkit-backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
+  background-blend-mode: multiply;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-link , .navbar-brand {
+ color: #f4f4f4;
+ cursor: pointer;
+}
+.nav-link {
+ margin-right: 1em !important;
+}
+.nav-link:hover {
+ background: #f4f4f4;
+ color: #8cc0ff;
+}
+.navbar-collapse {
+ justify-content: flex-end;
+}
+.navbar-toggler {
+  background:#fff !important;
+}
+
+body{
+   height:100%;
+   width:100%;
+   background-image: url('/static/images/gradient.jpg');
+   background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
+   background-size:cover;
+}
+
+.overlay{
+ position: absolute;
+ min-height: 100%;
+ min-width: 100%;
+ left: 0;
+ top: 0;
+}
+
+.description{
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    margin: auto;
+    padding: 2em;
+}
+.description h1{
+ color: #ffffff;
+ text-align: left;
+ font-size: 100px;
+}
+.description p{
+    margin-top: 10%;
+ text-align: left;
+ color: #ffffff;
+ font-size: 30px;
+ line-height: 1.5;
+}
+
+a:hover {
+  color: black !important;
+}

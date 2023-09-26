@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+<header class="header">
+  <div class="overlay"></div>
+   <div class="container">
+       <div class="description text-center">
+          <h3><font color="white">Сокращение ссылки
+            <p>Чтобы сократить ссылку, введите её в поле ниже</p>
+          </font></h3>
+            <form action="" method="post"
+              hx-post="{% url 'index' %}"
+              hx-target="closest div"
+              hx-swap="beforeend"
+              >
+            {% csrf_token %}
+            <label for="{{ form.full_link.id_for_label }}"></label>
+            {{ form.full_link }}
+            <input type="submit" class="btn btn-primary" value="Подтвердить" style="margin-top: 5%">
+
+            </form>
+        </div>
+    </div>
+
+</header>
+{% endblock %}

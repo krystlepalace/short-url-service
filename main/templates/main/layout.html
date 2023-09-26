@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<!-- служебная часть -->
+
+<head>
+  <!-- заголовок страницы -->
+  {% block title %}
+  {% endblock %}
+  <!-- настраиваем служебную информацию для браузеров -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- загружаем Бутстрап -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style type="text/css">
+  </style>
+  <!-- закрываем служебную часть страницы -->
+</head>
+
+<body>
+  <!-- тут будет наша страница -->
+  <nav class="navbar navbar-expand-lg fixed-top ">
+   <a class="navbar-brand nav-link rounded" href="{% url 'index' %}">Главная</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse " id="navbarSupportedContent">
+       <ul class="navbar-nav mr-4">
+
+         <li class="nav-item">
+           <a class="nav-link rounded px-4" href="{% url 'about' %}">О нас</a>
+         </li>
+       </ul>
+   </div>
+  </nav>
+  {% block content %}
+  {% endblock %}
+</body>
+<!-- конец всей страницы -->
+<script src="https://unpkg.com/htmx.org@1.6.1"></script>
+<script>
+  document.body.addEventListener("htmx:configRequest", (event) => {
+      event.detail.headers['X-CSRFToken'] = "{{ csrf_token }}";
+  });
+
+  document.body.addEventListener("htmx:afterRequest", (event) => {
+    document.getElementById("{{ form.full_link.auto_id }}").value = "";
+  });
+</script>
+</html>

@@ -28,7 +28,7 @@ def index(request):
 
 def about(request):
     data = {
-        'title': 'RedanDev'
+        'title': 'krystlepalace'
     }
 
     return render(request, 'main/about.html', data)
